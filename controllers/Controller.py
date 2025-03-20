@@ -1,4 +1,4 @@
-from tkinter import END
+from tkinter import *
 
 
 class Controller:
