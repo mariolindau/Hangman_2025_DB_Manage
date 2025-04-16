@@ -31,7 +31,7 @@ class View(Tk):
         self.__lbl_old_categories, self.__combo_categories = self.create_combobox()
 
         # Nupud
-        self.__btn_add, self.__btn_edit, self.__btn_delete = self.create_buttons()
+        self._btn_open, self.__btn_add, self.__btn_edit, self.__btn_delete = self.create_buttons()
 
         self.create_table()
 
@@ -84,18 +84,20 @@ class View(Tk):
 
     def create_buttons(self):
         """
-        Loob kolm nuppu CRUD jaoks. Antud juhul: CUD (Create, Update, Delete)
-        :return: btn_1, btn_2, btn_3
+        Loob neli nuppu CRUD jaoks. Antud juhul: CUD (Ava, Lisa, Muuda, Kustuta)
+        :return: btn_open, btn_add, btn_edit, btn_delete
         """
-        btn_1 = Button(self.__frame_right, text='Lisa')
-        btn_2 = Button(self.__frame_right, text='Muuda')
-        btn_3 = Button(self.__frame_right, text='Kustuta')
+        btn_open = Button(self.__frame_right, text='Ava')
+        btn_add = Button(self.__frame_right, text='Lisa')
+        btn_edit = Button(self.__frame_right, text='Muuda')
+        btn_delete = Button(self.__frame_right, text='Kustuta')
 
-        btn_1.grid(row=0, column=1, padx=1, sticky=EW)
-        btn_2.grid(row=1, column=2, padx=1, sticky=EW)
-        btn_3.grid(row=0, column=2, padx=1, sticky=EW)
+        btn_open.grid(row=0, column=0, padx=1, pady=1, sticky=EW)
+        btn_add.grid(row=0, column=1, padx=1, pady=1, sticky=EW)
+        btn_edit.grid(row=1, column=2, padx=1, pady=1, sticky=EW)
+        btn_delete.grid(row=0, column=2, padx=1, pady=1, sticky=EW)
 
-        return btn_1, btn_2, btn_3
+        return btn_open, btn_add, btn_edit, btn_delete
 
     def create_combobox(self):
         """
@@ -176,3 +178,19 @@ class View(Tk):
         :return: Entry objekt
         """
         return self.__txt_word
+
+    @property
+    def get_btn_open(self):
+        return self._btn_open
+
+    @property
+    def get_btn_add(self):
+        return self.__btn_add
+
+    @property
+    def get_btn_edit(self):
+        return self.__btn_edit
+
+    @property
+    def get_btn_delete(self):
+        return self.__btn_delete
