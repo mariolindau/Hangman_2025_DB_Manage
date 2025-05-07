@@ -25,7 +25,7 @@ class Database:
         """
         try:
             cursor = self.conn.cursor()
-            cursor.execute('select DISTINCT category * from words ORDER BY category')
+            cursor.execute('select DISTINCT category from words ORDER BY category')
             rows = cursor.fetchall()
             return [row[0] for row in rows]
         except sqlite3.Error as e:
